@@ -14,8 +14,8 @@ def create_hbar(area, plot_data, y_variables=data.model_vars, y_definition=data.
 	# 			'variables_extra': y_extra_info}))
 
 	all_data = ColumnDataSource(data=dict({
-		"x": data.model_data["WCORHUUR_P"],
-		"y": data.model_data["WPARTHUUR_P"],
+		"corporation_rent": data.model_data["WCORHUUR_P"],
+		"private_rent": data.model_data["WPARTHUUR_P"],
 		"area_name": data.model_data["area_name"]
 	}))
 
@@ -37,12 +37,13 @@ def create_hbar(area, plot_data, y_variables=data.model_vars, y_definition=data.
 	"""
 
 	TOOLS = "hover,save,pan,box_zoom,reset,wheel_zoom"
-	plot = figure(plot_height = 600, plot_width = 800, tools=TOOLS)
+	# plot = figure(plot_height = 600, plot_width = 800, tools=TOOLS)
+	plot = figure(plot_height = 600, plot_width = 800, x_range=(0,100), x_axis_label="corporation_rent", y_axis_label="private_rent", tools=TOOLS, tooltips=tooltips)
 
 	# plot.hbar(left='values', y='variables', right=1, height=0.9, fill_color='red', line_color='black', fill_alpha = 0.75,
 	#         hover_fill_alpha = 1.0, hover_fill_color = 'navy', source=all_data)
 
-	plot.scatter(x="x", y="y", size=10, alpha=0.6, source=all_data)
+	plot.scatter(x="corporation_rent", y="private_rent", size=10, alpha=0.6, source=all_data)
 	plot.select(dict(type=HoverTool)).tooltips = {"corporation rent":"&euro;$x", "private rent":"&euro;$y"} # "area":"$area_name"
 
 	# plot.title.text = "Relevant statistics about " + area
