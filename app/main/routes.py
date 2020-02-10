@@ -20,17 +20,26 @@ def bokeh():
 	property_type = request.args.get("property_type")
 	rental_price = request.args.get("rental_price")
 	surface_area = request.args.get("surface_area")
+	axis_x = request.args.get("axis_x")
+	axis_y = request.args.get("axis_y")
 
 	if property_type is None:
 		property_type = 'WCORHUUR_P'
 		rental_price = 'WHUURTSLG_P'
 		surface_area = 'WOPP0040_P'
 
+	if axis_x is None:
+		axis_x = "WCORHUUR_P"
+	if axis_y is None:
+		axis_y = "WHUURTSLG_P"
+
+
 	return render_template("bokeh.html",
 		all_property_types=data.all_property_types, all_property_types_text=data.all_property_types_text,
 		all_rental_prices=data.all_rental_prices, all_rental_prices_text=data.all_rental_prices_text,
 		all_surface_areas=data.all_surface_areas, all_surface_areas_text=data.all_surface_areas_text,
-		selected_property_type=property_type, selected_rental_price=rental_price, selected_surface_area=surface_area)
+		selected_property_type=property_type, selected_rental_price=rental_price, selected_surface_area=surface_area,
+		all_metrics=data.all_metrics, selected_axis_x=axis_x, selected_axis_y=axis_y)
 
 
 @main.route("/data", methods=['GET'])

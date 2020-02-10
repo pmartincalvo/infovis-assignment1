@@ -23,6 +23,7 @@ label_var = stats_ams_meta['Variabele'].tolist()
 all_property_types = ['WCORHUUR_P', 'WPARTHUUR_P']
 all_rental_prices = ['WHUURTSLG_P', 'WHUURMIDDEN_P', 'WHUURHOOG_P']
 all_surface_areas = ['WOPP0040_P', 'WOPP4060_P', 'WOPP6080_P', 'WOPP80100_P', 'WOPP100PLUS_P']
+all_metrics = all_property_types + all_rental_prices + all_surface_areas
 all_property_types_text = ['Housing corporation rental', 'Private rental']
 all_rental_prices_text = ['Low rent (< 711 euro)', 'Middle high rent (711 - 971 euro)', 'High rent (> 971 euro)']
 all_surface_areas_text = ['Living space of 0-40 m2', 'Living space of 40-60 m2', 'Living space of 60-80 m2', 
