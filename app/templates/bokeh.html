@@ -12,7 +12,7 @@
 
 <p clas=="lead">I am looking for a rental place with the following properties:</p>
 	<select name="axis_x">
-	{% for metric in all_metrics %}
+	{% for axis_x in all_metrics %}
 		{% if axis_x == selected_axis_x %}
 			<option selected value="{{ axis_x }}">{{all_metrics[loop.index - 1]}}</option>
 		{% else %}
@@ -21,7 +21,7 @@
 	{% endfor %}
 </select>
 	<select name="axis_y">
-	{% for metric in all_metrics %}
+	{% for axis_y in all_metrics %}
 		{% if axis_y == selected_axis_y %}
 			<option selected value="{{ axis_y }}">{{all_metrics[loop.index - 1]}}</option>
 		{% else %}
@@ -83,7 +83,7 @@
 	var area_proba;
 
 	var fetch_url = '/data?property=' + property_type + '&surface=' + surface_area + 
-	'&price=' + rental_price + '&plot=1';
+	'&price=' + rental_price + '&plot=1' + '&axis_x=' + axis_x + '&axis_y=' + axis_y;
 	fetch(fetch_url)
 		.then(function(response) { return response.json(); })
 		.then((data) => {
