@@ -56,8 +56,9 @@ def create_hbar(
         plot_height=600,
         plot_width=800,
         x_range=(0, 100),
-        x_axis_label="corporation_rent",
-        y_axis_label="private_rent",
+        y_range=(0, 100),
+        x_axis_label=axis_x,
+        y_axis_label=axis_y,
         tools=TOOLS,
         tooltips=tooltips,
     )

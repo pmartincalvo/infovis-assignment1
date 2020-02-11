@@ -10,7 +10,7 @@
 
 <form action="/bokeh">
 
-<p clas=="lead">I am looking for a rental place with the following properties:</p>
+<!-- <p clas=="lead">I am looking for a rental place with the following properties:</p> -->
 	<select name="axis_x">
 	{% for axis_x in all_metrics %}
 		{% if axis_x == selected_axis_x %}
@@ -29,7 +29,7 @@
 		{% endif %}
 	{% endfor %}
 </select>
-<select name="property_type">
+<!-- <select name="property_type">
 	{% for property_type in all_property_types %}
 		{% if property_type == selected_property_type %}
 			<option selected value="{{ property_type }}">{{all_property_types_text[loop.index - 1]}}</option> 
@@ -55,7 +55,7 @@
 			<option value="{{ surface_area }}">{{all_surface_areas_text[loop.index - 1]}}</option> 
 		{% endif %}
 	{% endfor %}
-</select>
+</select> -->
 <button class="btn btn-light" type="submit">Submit Query</button>
 </form>
 
@@ -89,8 +89,9 @@
 		.then((data) => {
 			area = data.prediction;
 			area_proba = data.prediction_proba;
-			var htmlText = 'We recommend you to look for a rental place in <b>' + area + 
-				'</b> with a prediction probability of <b>' + area_proba + '</b>.'
+			// var htmlText = 'We recommend you to look for a rental place in <b>' + area + 
+			// 	'</b> with a prediction probability of <b>' + area_proba + '</b>.'
+			var htmlText = 'The scatter plot below shows the relation between ' + axis_x + ' and ' + axis_y + '.' 
 
 			d3.select("#prediction-container")
 				.append("p")
@@ -124,8 +125,9 @@
 					.remove();
 
 				d3.select('body')
-				var htmlText = 'We previously recommended you to look for an area in <b>' + area + '</b> with a prediction probability of <b>' + area_proba +
-				'</b>. Due to the change in data variables, the prediction probability for this area has changed to <b>' + data.area_changed_proba + '</b>. ' 
+				// var htmlText = 'We previously recommended you to look for an area in <b>' + area + '</b> with a prediction probability of <b>' + area_proba +
+				// '</b>. Due to the change in data variables, the prediction probability for this area has changed to <b>' + data.area_changed_proba + '</b>. ' 
+				var htmlText = 'The scatter plot below shows the relation between ' + axis_x + ' and ' + axis_y + '.' 
 				area_proba = data.area_changed_proba;
 				
 				var newPredArea = data.prediction;
