@@ -132,9 +132,15 @@ def get_data():
 @main.route("/d3", methods=["GET", "POST"])
 def d3():
     area_name = request.args.get("area_name")
+    metric_name_x = request.args.get("corporation_rent") # axis_x?
+    metric_name_y = request.args.get("private_rent")
 
     if area_name is None:
         area_name = "Centrum-West"
+    if metric_name_x is None:
+        metric_name_x = "WCORHUUR_P"
+    if metric_name_y is None:
+        metric_name_y = "WHUURTSLG_P"
 
     plot_data = data.stats_ams.loc[data.stats_ams["area_name"] == area_name]
     plot_data = plot_data.drop(["area_name", "area_code"], axis=1)
@@ -147,5 +153,8 @@ def d3():
         meta_data=meta_data,
         x_variables=data.model_vars,
         area_names=data.area_names,
+        all_metrics=data.all_metrics,
         selected_area_name=area_name,
+        selected_metric_name_x=metric_name_x,
+        selected_metric_name_y=metric_name_y,
     )

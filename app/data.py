@@ -26,8 +26,7 @@ all_surface_areas = ['WOPP0040_P', 'WOPP4060_P', 'WOPP6080_P', 'WOPP80100_P', 'W
 all_metrics = all_property_types + all_rental_prices + all_surface_areas
 all_property_types_text = ['Housing corporation rental', 'Private rental']
 all_rental_prices_text = ['Low rent (< 711 euro)', 'Middle high rent (711 - 971 euro)', 'High rent (> 971 euro)']
-all_surface_areas_text = ['Living space of 0-40 m2', 'Living space of 40-60 m2', 'Living space of 60-80 m2', 
-'Living space of 80-100 m2', 'Living space of > 100 m2']
+all_surface_areas_text = ['Living space of 0-40 m2', 'Living space of 40-60 m2', 'Living space of 60-80 m2', 'Living space of 80-100 m2', 'Living space of > 100 m2']
 all_var_types = [all_surface_areas, all_rental_prices, all_property_types]
 
 label_def_ordered = []
