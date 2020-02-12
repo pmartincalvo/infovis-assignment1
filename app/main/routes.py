@@ -135,15 +135,12 @@ def d3():
     metric_name_x = request.args.get("corporation_rent") # axis_x?
     metric_name_y = request.args.get("private_rent")
 
-    if area_name is None:
-        area_name = "Centrum-West"
     if metric_name_x is None:
         metric_name_x = "WCORHUUR_P"
     if metric_name_y is None:
         metric_name_y = "WHUURTSLG_P"
 
-    plot_data = data.stats_ams.loc[data.stats_ams["area_name"] == area_name]
-    plot_data = plot_data.drop(["area_name", "area_code"], axis=1)
+    plot_data = data.stats_ams
     plot_data = plot_data.to_json(orient="records")
 
     meta_data = data.stats_ams_meta.to_json(orient="records")
