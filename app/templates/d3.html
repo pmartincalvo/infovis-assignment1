@@ -34,9 +34,6 @@
 		{% endif %}
 		{% endfor %}
 	</select>
-	<input type="submit">
-</form>
-<form action="/d3">
 	<select name="axis_y">
 		{% for axis_y in all_metrics %}
 		{% if axis_y == selected_metric_name_y %}
@@ -50,8 +47,8 @@
 </form>
 
 
-<div class="mt-3" id="barchart">
-</div>
+<div class="mt-3" id="barchart"></div>
+<div class="mt-3" id="scatter"></div>
 
 <script type="text/javascript">
 	var data = {{ data |safe }}; 
@@ -64,8 +61,9 @@
 
 
 
-
 <link rel="stylesheet" type="text/css" href="../static/css/barchart.css">
-<script type="text/javascript" src="../static/js/barchart.js"></script>
+<!-- <script type="text/javascript" src="../static/js/barchart.js"></script> -->
+<script type="text/javascript" src="../static/js/scatter.js"></script>
+
 
 {% endblock %}
